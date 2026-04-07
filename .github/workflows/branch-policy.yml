@@ -1,0 +1,27 @@
+name: Branch Policy
+
+on:
+  pull_request:
+    branches:
+      - main
+      - develop
+  workflow_dispatch:
+
+jobs:
+  validate-main-pr-source:
+    if: github.base_ref == 'main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ensure pull request to main comes from develop
+        run: |
+          if [ "${{ github.head_ref }}" != "develop" ]; then
+            echo "Only pull requests from 'develop' may target 'main'. Current source branch: '${{ github.head_ref }}'."
+            exit 1
+          fi
+
+  validate-develop-pr:
+    if: github.base_ref == 'develop'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Confirm pull request targets develop
+        run: echo "Pull request into develop detected."
