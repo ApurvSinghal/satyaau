@@ -1,7 +1,8 @@
 import type { MetadataRoute } from "next";
+import { siteConfig } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://satyafitness.com";
+  const baseUrl = siteConfig.siteUrl;
   const routes = ["", "/about", "/services", "/transformations", "/blog", "/contact", "/booking"];
 
   return routes.map((route) => ({

@@ -3,6 +3,7 @@ import { Barlow_Condensed, Sora } from "next/font/google";
 import "./globals.css";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { siteConfig } from "@/lib/site";
 
 const sora = Sora({
   variable: "--font-sora",
@@ -16,7 +17,7 @@ const barlowCondensed = Barlow_Condensed({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://satyafitness.com"),
+  metadataBase: new URL(siteConfig.siteUrl),
   title: {
     default: "Satya Fitness | Lean, Strong, Disciplined Coaching",
     template: "%s | Satya Fitness",

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { CalendlyInlineWidget } from "@/components/calendly-inline-widget";
 import { FormCard } from "@/components/form-card";
 import { SectionHeading } from "@/components/section-heading";
 import { siteConfig } from "@/lib/site";
@@ -68,17 +69,10 @@ export default function BookingPage() {
           <SectionHeading
             kicker="Calendly"
             title="Choose A Time That Works"
-            subtitle="Embed is ready. Replace with your live Calendly URL in env config when available."
+            subtitle="Book directly on the inline scheduler below."
           />
           <div className="surface-card overflow-hidden p-3 md:p-4">
-            <div className="relative h-[700px] w-full overflow-hidden rounded-xl border border-[#d8ddd7]">
-              <iframe
-                src={siteConfig.calendlyUrl}
-                title="Book consultation"
-                className="h-full w-full"
-                loading="lazy"
-              />
-            </div>
+            <CalendlyInlineWidget url={siteConfig.calendlyUrl} />
             <p className="mt-3 text-xs text-[#5f665f]">
               If the scheduler does not load, open it directly:
               <a href={siteConfig.calendlyUrl} target="_blank" rel="noreferrer" className="ml-1 font-semibold underline">

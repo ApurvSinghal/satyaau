@@ -36,6 +36,9 @@ export default function ContactPage() {
           >
             Message On Instagram
           </a>
+          <a href={`tel:${siteConfig.contactPhone}`} className="cta-secondary w-full text-center md:w-auto">
+            Call {siteConfig.contactPhone}
+          </a>
         </div>
 
         <FormCard
