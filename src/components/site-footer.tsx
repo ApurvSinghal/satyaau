@@ -32,6 +32,9 @@ export function SiteFooter() {
             <a href={`mailto:${siteConfig.contactEmail}`} className="hover:underline">
               {siteConfig.contactEmail}
             </a>
+            <a href={`tel:${siteConfig.contactPhone}`} className="hover:underline">
+              {siteConfig.contactPhone}
+            </a>
             <p className="text-[#5f665f]">Online coaching for busy professionals worldwide</p>
           </div>
         </div>
