@@ -9,10 +9,15 @@ on:
 
 jobs:
   validate-main-pr-source:
-    if: github.base_ref == 'main'
+    if: github.event_name == 'workflow_dispatch' || github.base_ref == 'main'
     runs-on: ubuntu-latest
     steps:
+      - name: Allow manual validation runs
+        if: github.event_name == 'workflow_dispatch'
+        run: echo "Manual branch policy validation run."
+
       - name: Ensure pull request to main comes from develop
+        if: github.event_name == 'pull_request'
         run: |
           if [ "${{ github.head_ref }}" != "develop" ]; then
             echo "Only pull requests from 'develop' may target 'main'. Current source branch: '${{ github.head_ref }}'."
