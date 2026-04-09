@@ -1,13 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f7f8f5;
-  --surface: #ffffff;
-  --ink: #0f1110;
-  --muted: #5f665f;
-  --line: #d8ddd7;
-  --accent: #4ea973;
-  --accent-dark: #1f6f45;
+  --background: #f4f3ee;
+  --surface: rgba(255, 255, 255, 0.9);
+  --ink: #121713;
+  --muted: #59625b;
+  --line: #d3dad1;
+  --accent: #69af7d;
+  --accent-dark: #1e5a39;
+  --accent-soft: #ecf4ec;
+  --ink-soft: #1d241f;
 }
 
 @theme inline {
@@ -25,11 +27,14 @@ body {
   background: var(--background);
   color: var(--ink);
   font-family: var(--font-sora), sans-serif;
+  text-rendering: optimizeLegibility;
 }
 
 .page-bg {
-  background-image: radial-gradient(circle at 10% 5%, #ffffff 0%, transparent 40%),
-    radial-gradient(circle at 90% 90%, #e8efe8 0%, transparent 30%);
+  background-image:
+    radial-gradient(circle at 8% 8%, rgba(255, 255, 255, 0.95) 0%, transparent 34%),
+    radial-gradient(circle at 100% 20%, rgba(218, 232, 219, 0.9) 0%, transparent 26%),
+    linear-gradient(180deg, #f8f7f2 0%, #f3f1ea 100%);
 }
 
 .section-space {
@@ -39,19 +44,21 @@ body {
 .surface-card {
   border: 1px solid var(--line);
   background: var(--surface);
-  border-radius: 1rem;
-  box-shadow: 0 8px 24px rgba(13, 17, 14, 0.04);
+  backdrop-filter: blur(10px);
+  border-radius: 1.5rem;
+  box-shadow: 0 30px 80px -55px rgba(18, 23, 19, 0.35);
 }
 
 .cta-primary {
   @apply inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold tracking-wide transition;
-  background: var(--ink);
+  background: linear-gradient(135deg, var(--accent-dark), #153927);
   color: #fff;
+  box-shadow: 0 18px 30px -20px rgba(30, 90, 57, 0.65);
 }
 
 .cta-primary:hover {
   transform: translateY(-1px);
-  background: #242825;
+  background: linear-gradient(135deg, #17472d, #10291d);
 }
 
 .cta-secondary {
@@ -63,12 +70,16 @@ body {
 
 .cta-secondary:hover {
   border-color: #bcc3bc;
-  background: #f8fbf8;
+  background: #f3f6f1;
 }
 
 .label-kicker {
   @apply text-xs font-semibold uppercase tracking-[0.2em];
   color: var(--accent-dark);
+}
+
+::selection {
+  background: rgba(105, 175, 125, 0.22);
 }
 
 .fade-up {

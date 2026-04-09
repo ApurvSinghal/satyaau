@@ -3,7 +3,7 @@ import { Barlow_Condensed, Sora } from "next/font/google";
 import "./globals.css";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
-import { siteConfig } from "@/lib/site";
+import { siteConfig } from "@/config/site";
 
 const sora = Sora({
   variable: "--font-sora",
